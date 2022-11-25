@@ -7,7 +7,7 @@
 #include "lab01.h"
 
 int *
-wordcount_100_svc(params *argp, struct svc_req *rqstp)
+wordcount_100_svc(params *argp, struct svc_req *rqstp) 
 {
 	static int  result;
 
