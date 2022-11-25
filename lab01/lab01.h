@@ -24,15 +24,15 @@ typedef struct params params;
 
 #if defined(__STDC__) || defined(__cplusplus)
 #define WORDCOUNT 1
-extern  int * wordcount_100(params *, CLIENT *);
-extern  int * wordcount_100_svc(params *, struct svc_req *);
+extern  int *wordcount_100(params *, CLIENT *);
+extern  FILE *wordcount_100_svc(params *, struct svc_req *);
 extern int prog_100_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define WORDCOUNT 1
 extern  int * wordcount_100();
-extern  int * wordcount_100_svc();
-extern int prog_100_freeresult ();
+extern  FILE *wordcount_100_svc();
+extern int prog_100_freeresult();
 #endif /* K&R C */
 
 /* the xdr functions */

@@ -9,27 +9,30 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "lab01.h"
 
 #define MAX_WORDS 1000
 
-int wordCount (CLIENT *clnt, char name[100]){
+int wordCount (CLIENT *clnt, char nameFile[100]){
 	int len, isUnique,i;
 	char word[50];
-	FILE *fptr;
+	params ops;
+	strcpy(ops.name, nameFile);
+	FILE *fptr = wordcount_100_svc(&ops,clnt);
 	int index = 0;
-	/* Input file path */
-	printf("Enter file path: ");
-	/* Try to open file */
-	fptr = fopen(name, "r");
+	// /* Input file path */
+	// printf("Enter file path: ");
+	// /* Try to open file */
+	// fptr = fopen(name, "r");
 
-	/* Exit if file not opened successfully */
+	//  Exit if file not opened successfully 
 
-	if (fptr == NULL){
-		printf("Unable to open file.\n");
-		printf("Please check you have read previleges.\n");
+	// if (fptr == NULL){
+	// 	printf("Unable to open file.\n");
+	// 	printf("Please check you have read previleges.\n");
 
-		exit(EXIT_FAILURE);
-	}
+	// 	exit(EXIT_FAILURE);
+	// }
 
 	//List of distinct words
 	char words[MAX_WORDS][50];
@@ -85,9 +88,7 @@ int wordCount (CLIENT *clnt, char name[100]){
 	fclose(fptr);
 }
 
-int
-main (int argc, char *argv[])
-{
+int main (int argc, char *argv[]){
 	CLIENT *clnt;
 	char name[100];
 

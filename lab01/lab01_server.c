@@ -6,17 +6,28 @@
 
 #include "lab01.h"
 
-int *
-wordcount_100_svc(params *argp, struct svc_req *rqstp) 
-{
-	static int  result;
+FILE *wordcount_100_svc(params *argp, struct svc_req *rqstp){
+	static FILE *result;
 
 	/*
 	 * insert server code here
 	 */
-	printf("Requisicao para contagem de palavras no arquivo %s\n", argp-> name);
+		/* Input file path */
+	printf("Enter file path: ");
+	/* Try to open file */
+	fptr = fopen(argp->name, "r");
+
+	/* Exit if file not opened successfully */
+
+	if (fptr == NULL){
+		printf("Unable to open file.\n");
+		printf("Please check you have read previleges.\n");
+
+		exit(EXIT_FAILURE);
+	}
+	printf("Requisicao para contagem de palavras no arquivo %s\n", argp->name);
 	
-	return &result;
+	return result;
 }
 
 /*int *add_100_svc(operandos *argp, struct svc_req *rqstp)
