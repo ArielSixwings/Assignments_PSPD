@@ -4,8 +4,7 @@
 #include <ctype.h>
 
 #define MAX_WORDS 1000
-int wordCount(FILE *fptr);
-FILE *getFile(char nameArq[100]);
+int wordCount(char nameArq[100]);
 
 int main(){
 	int index;
@@ -16,7 +15,7 @@ int main(){
 	//char words[MAX_WORDS][50];
 
 	int chamada;
-	chamada = wordCount(getFile(path));
+	chamada = wordCount(path);
 
 	// Close file
 	/*
@@ -25,8 +24,11 @@ int main(){
 	return 0;
 }
 
-FILE *getFile(char nameArq[100]){
+int wordCount(char nameArq[100]){
+	int len, isUnique,i;
+	char word[50];
 	FILE *fptr;
+	int index = 0;
 	/* Input file path */
 	printf("Enter file path: ");
 	/* Try to open file */
@@ -40,14 +42,6 @@ FILE *getFile(char nameArq[100]){
 
 		exit(EXIT_FAILURE);
 	}
-	return fptr;
-
-}
-
-int wordCount(FILE *fptr){  
-	int len, isUnique,i;
-	char word[50];
-	int index = 0;
 
 	//List of distinct words
 	char words[MAX_WORDS][50];

@@ -12,10 +12,25 @@
 
 #define MAX_WORDS 1000
 
-int wordCount (CLIENT *clnt, FILE *fptr){
+int wordCount (CLIENT *clnt, char name[100]){
 	int len, isUnique,i;
 	char word[50];
+	FILE *fptr;
 	int index = 0;
+	/* Input file path */
+	printf("Enter file path: ");
+	/* Try to open file */
+	fptr = fopen(name, "r");
+
+	/* Exit if file not opened successfully */
+
+	if (fptr == NULL){
+		printf("Unable to open file.\n");
+		printf("Please check you have read previleges.\n");
+
+		exit(EXIT_FAILURE);
+	}
+
 	//List of distinct words
 	char words[MAX_WORDS][50];
 
