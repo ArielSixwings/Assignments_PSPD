@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "lab01.h"
+#include "labteste.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <rpc/pmap_clnt.h>
@@ -33,7 +33,7 @@ prog_100(struct svc_req *rqstp, register SVCXPRT *transp)
 
 	case WORDCOUNT:
 		_xdr_argument = (xdrproc_t) xdr_params;
-		_xdr_result = (xdrproc_t) xdr_int;
+		_xdr_result = (xdrproc_t) xdr_result;
 		local = (char *(*)(char *, struct svc_req *)) wordcount_100_svc;
 		break;
 

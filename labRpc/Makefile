@@ -3,26 +3,26 @@
 
 # Parameters
 
-CLIENT = lab01_client
-SERVER = lab01_server
+CLIENT = labteste_client
+SERVER = labteste_server
 
 SOURCES_CLNT.c = 
 SOURCES_CLNT.h = 
 SOURCES_SVC.c = 
 SOURCES_SVC.h = 
-SOURCES.x = lab01.x
+SOURCES.x = labteste.x
 
-TARGETS_SVC.c = lab01_svc.c lab01_server.c lab01_xdr.c 
-TARGETS_CLNT.c = lab01_clnt.c lab01_client.c lab01_xdr.c 
-TARGETS = lab01.h lab01_xdr.c lab01_clnt.c lab01_svc.c lab01_client.c lab01_server.c
+TARGETS_SVC.c = labteste_svc.c labteste_server.c labteste_xdr.c 
+TARGETS_CLNT.c = labteste_clnt.c labteste_client.c labteste_xdr.c 
+TARGETS = labteste.h labteste_xdr.c labteste_clnt.c labteste_svc.c labteste_client.c labteste_server.c
 
 OBJECTS_CLNT = $(SOURCES_CLNT.c:%.c=%.o) $(TARGETS_CLNT.c:%.c=%.o)
 OBJECTS_SVC = $(SOURCES_SVC.c:%.c=%.o) $(TARGETS_SVC.c:%.c=%.o)
 # Compiler flags 
 
-CFLAGS += -g -lm -pthread -I/usr/include/tirpc/ -D MAXDATA=$(MAXDATA)
-LDLIBS += -lnsl   -ltirpc
-RPCGENFLAGS = -b
+CFLAGS += -g 
+LDLIBS += -lnsl
+RPCGENFLAGS = 
 
 # Targets 
 

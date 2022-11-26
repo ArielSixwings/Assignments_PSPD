@@ -3,8 +3,8 @@
  * It was generated using rpcgen.
  */
 
-#ifndef _LAB01_H_RPCGEN
-#define _LAB01_H_RPCGEN
+#ifndef _LABTESTE_H_RPCGEN
+#define _LABTESTE_H_RPCGEN
 
 #include <rpc/rpc.h>
 
@@ -15,23 +15,35 @@ extern "C" {
 
 
 struct params {
-	char name[100];
+	char arqName[100];
 };
 typedef struct params params;
+
+typedef char *words;
+
+struct result {
+	struct {
+		u_int object_len;
+		words *object_val;
+	} object;
+	int count[1000];
+	int index;
+};
+typedef struct result result;
 
 #define PROG 55555555
 #define VERSAO 100
 
 #if defined(__STDC__) || defined(__cplusplus)
 #define WORDCOUNT 1
-extern  int * wordcount_100(params *, CLIENT *);
-extern  int * wordcount_100_svc(params *, struct svc_req *);
+extern  result * wordcount_100(params *, CLIENT *);
+extern  result * wordcount_100_svc(params *, struct svc_req *);
 extern int prog_100_freeresult (SVCXPRT *, xdrproc_t, caddr_t);
 
 #else /* K&R C */
 #define WORDCOUNT 1
-extern  int * wordcount_100();
-extern  int * wordcount_100_svc();
+extern  result * wordcount_100();
+extern  result * wordcount_100_svc();
 extern int prog_100_freeresult ();
 #endif /* K&R C */
 
@@ -39,9 +51,13 @@ extern int prog_100_freeresult ();
 
 #if defined(__STDC__) || defined(__cplusplus)
 extern  bool_t xdr_params (XDR *, params*);
+extern  bool_t xdr_words (XDR *, words*);
+extern  bool_t xdr_result (XDR *, result*);
 
 #else /* K&R C */
 extern bool_t xdr_params ();
+extern bool_t xdr_words ();
+extern bool_t xdr_result ();
 
 #endif /* K&R C */
 
@@ -49,4 +65,4 @@ extern bool_t xdr_params ();
 }
 #endif
 
-#endif /* !_LAB01_H_RPCGEN */
+#endif /* !_LABTESTE_H_RPCGEN */
