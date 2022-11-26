@@ -22,6 +22,10 @@ wordcount_100_svc(params *argp, struct svc_req *rqstp)
 	int temp;
 	int i,j,k;
 	int len, isUnique;
+	resultado.index=0;
+
+	for (int i=0;i<1000;i++)
+		resultado.count[i]=0;
 
 	resultado.object.object_val = (char **)malloc(1000 * sizeof(char));
 	char *word = (char *) malloc(50 * sizeof(char));
@@ -81,7 +85,7 @@ wordcount_100_svc(params *argp, struct svc_req *rqstp)
 			resultado.count[k - 1]++;
 		}
 	}
-	resultado.object.object_len=resultado.object.object_len+10;
+	resultado.object.object_len=resultado.object.object_len+2;
 	//printf("P1:%s\n",&(*resultado.object.object_val[3]));
 	//printf("P1:%d\n",resultado.object.object_len);
  
